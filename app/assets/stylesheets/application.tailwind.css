@@ -1,3 +1,67 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Futura";
+  src: asset-path(
+    "futura/futur.ttf"
+  );
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+h1 {
+  font-size: 4em;
+  line-height: .8em;
+}
+
+/* Estilos para h2 */
+h2 {
+  font-size: 3em;
+}
+
+/* Estilos para h3 */
+h3 {
+  font-size: 1.75em;
+}
+
+/* Estilos para h4 */
+h4 {
+  font-size: 1.5em;
+}
+
+/* Estilos para h5 */
+h5 {
+  font-size: 1.25em;
+}
+
+/* Estilos para h6 */
+h6 {
+  font-size: 1em;
+}
+
+ul {
+  list-style: disc;
+}
+
+li {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+  margin-left: 1.2rem;
+}
+
+pre {
+    border-radius: 8px;
+    margin: 2rem 0 !important;
+}

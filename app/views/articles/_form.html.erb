@@ -1,32 +1,22 @@
-<%= form_with(model: article) do |form| %>
+<%= form_with(model: article, data: { controller: "editor" }, class: "bg-white p-8 rounded-lg shadow-md min-w-full mx-auto") do |form| %>
   <% if article.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
-
+    <div class="bg-red-100 text-red-700 p-4 rounded-lg mb-6">
+      <h2 class="font-bold"><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
       <ul>
         <% article.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+          <li class="list-disc list-inside"><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="mb-4">
+    <%= form.label :title, class: "block text-sm font-medium text-gray-600" %>
+    <%= form.text_field :title, class: "mt-1 p-2 w-full rounded-md border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" %>
   </div>
-
-  <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.text_field :content %>
+  <%= form.hidden_field :content, id: "article_hidden_content", data: { editor_target: "hiddenContent" } %>
+  <div class="mb-4 w-ful" id="article_content" data-editor-target="articleContent">
   </div>
-
   <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit "Submit", class: "w-full bg-blue-600 text-white p-2 rounded-md hover:bg-blue-700 focus:outline-none focus:border-blue-700 focus:ring focus:ring-blue-200 focus:ring-opacity-50" %>
   </div>
 <% end %>
