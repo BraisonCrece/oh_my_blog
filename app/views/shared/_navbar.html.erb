@@ -1,1 +1,18 @@
+<nav class="bg-blue-500 p-4">
+  <div class="container mx-auto">
+    <div class="flex justify-between items-center">
+      <%= link_to articles_path do %>
+		<h2 class="text-white text-xl font-bold">Oh My Blog!</h2>
+	  <% end %>
+      <ul class="flex space-x-4 list-none">
+        <%= link_to articles_path do %>
+            <li><span class="text-white font-bold hover:text-gray-300">Artículos Recientes</span></li>
+        <% end %>
+        <%= link_to new_article_path do %>
+            <li><span class="text-white font-bold hover:text-gray-300">Nuevo Artículo</span></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
 
