@@ -11,9 +11,10 @@
     <%= javascript_include_tag "prism", defer: true %>
     <%= javascript_include_tag "editorjs", defer: true %>
   </head>
-  <body class="container">
+  <body>
     <%= render "shared/alerts" %>
-    <main class="w-[90%] mx-auto">
+    <%= render "shared/navbar" %>
+    <main class="container w-[90%] mx-auto">
       <%= yield %>
     </main>
   </body>
