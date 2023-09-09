@@ -17,6 +17,19 @@ class RenderService
       when "code"
         escaped_code = CGI.escapeHTML(block["data"]["code"])
         "<pre class='language-#{block["data"]["language"]}'><code>#{escaped_code}</code></pre>"
+      when "alert"
+        color = if block["data"]["type"] == "danger"
+          "text-red-400"
+        elsif block["data"]["type"] == "info"
+          "text-indigo-400"
+        elsif block["data"]["type"] == "warning"
+          "text-amber-400"
+        elsif block["data"]["type"] == "primary"
+          "text-blue-400"
+        end
+        "<div class='p-8 border-solid border-2 border-sky-500'>
+          <p class='#{color}'>#{block["data"]["message"]}</p>
+        </div>"
       when "image"
         url = block["data"]["file"]["url"]
         caption = block["data"]["caption"]
