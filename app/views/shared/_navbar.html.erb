@@ -17,6 +17,11 @@
           <%= link_to new_article_path do %>
             <li><span class="text-white font-bold hover:text-gray-300">Nuevo Artículo</span></li>
           <% end %>
+          <% if current_user %>
+            <%= button_to destroy_user_session_path, method: :delete do %>
+              <li><span class="text-white font-bold hover:text-red-300">Cerrar sesión</span></li>
+            <% end %>
+          <% end %>
         </ul>
         <button class="text-gray-50 md:hidden" data-toggle-menu-target="button" >
           <%= image_tag "hamburguer_menu", class: "h-14 w-14 "%>

@@ -11,14 +11,10 @@
   font-style: normal;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
   margin-bottom: 0.5em;
+  text-wrap: balance;
 }
 
 h1 {
@@ -64,4 +60,15 @@ li {
 pre {
     border-radius: 8px;
     margin: 2rem 0 !important;
+}
+
+/* Editor JS */
+.codex-editor__redactor, .ce-paragraph, .ce-block, .codex-editor {
+    max-width: 100% !important;
+}
+
+
+.balance {
+    text-wrap: balance;
+    text-align: center;
 }
