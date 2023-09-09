@@ -8,13 +8,13 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "prism", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-    <%= javascript_include_tag "prism", defer: true %>
-    <%= javascript_include_tag "editorjs", defer: true %>
+    <%= javascript_include_tag "prism", "data-turbo-track": "reload", defer: true %>
+    <%= javascript_include_tag "editorjs", "data-turbo-track": "reload", defer: true %>
   </head>
   <body>
     <%= render "shared/alerts" %>
     <%= render "shared/navbar" %>
-    <main class="container w-[90%] mx-auto">
+    <main class="w-[90%] sm:w-4/5 lg:w-3/4 xl:w-2/3 mx-auto my-9">
       <%= yield %>
     </main>
   </body>
