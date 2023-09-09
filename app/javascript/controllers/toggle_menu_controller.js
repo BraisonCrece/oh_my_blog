@@ -11,14 +11,16 @@ export default class extends Controller {
         const list = document.querySelector("#menu-list")
         const nav = document.querySelector("nav")
         const navRect = nav.getBoundingClientRect();
-        const distance = `translate-y-[${navRect.bottom}px]`
+        console.log(navRect.bottom)
+        const distance = `translate-x-[${navRect.bottom}px]`
 
-        if (list.classList.contains("-translate-y-full")) {
-            list.classList.remove("-translate-y-full")
-            list.classList.add(distance)
-        }else{
-            list.classList.remove(distance)
-            list.classList.add("-translate-y-full")
-        }
+        list.classList.toggle("-translate-y-full")
+        // if (list.classList.contains("-translate-y-full")) {
+        //     list.classList.remove("-translate-y-full")
+        //     list.classList.add(distance)
+        // }else{
+        //     list.classList.remove(distance)
+        //     list.classList.add("-translate-y-full")
+        // }
     }
 }
