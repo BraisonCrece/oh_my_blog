@@ -4,7 +4,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
     static targets = ['button', 'list']
     connect() {
-        this.buttonTarget.addEventListener("click", this.toggle)
+        this.buttonTarget.addEventListener("click", this.toggle.bind(this))
     }
 
     toggle() {
