@@ -8,6 +8,7 @@ export default class extends Controller {
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
             scrollY > 0 ? this.navTarget.classList.add('shadow-md') : this.navTarget.classList.remove('shadow-md')
+
         })
         this.buttonTarget.addEventListener("click", this.toggle.bind(this))
     }

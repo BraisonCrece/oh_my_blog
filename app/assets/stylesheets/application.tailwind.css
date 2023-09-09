@@ -72,3 +72,18 @@ pre {
     text-wrap: balance;
     text-align: center;
 }
+
+.ace_gutter {
+    z-index: 0;
+}
+
+.text-shadow {
+    text-shadow: -1px 1px 2px  #84cc16;
+}
+
+.blur_effect {
+    --tw-bg-opacity: 0.95;
+    background-color: rgb(248 250 252 / var(--tw-bg-opacity));
+    backdrop-filter: blur(10);
+}
+
