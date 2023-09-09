@@ -1206,6 +1206,10 @@ var Prism = (function (_self) {
 
 }(_self));
 
+// document.addEventListener("DOMContentLoaded", ()=>{
+//     Prism.highlightAll();
+// })
+
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = Prism;
 }

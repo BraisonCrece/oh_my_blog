@@ -22,28 +22,28 @@ h6 {
 }
 
 h1 {
-  font-size: 4em;
-  line-height: .8em;
+  font-size: 2em;
+  /* line-height: .8em; */
 }
 
 /* Estilos para h2 */
 h2 {
-  font-size: 3em;
+  font-size: 1.75em;
 }
 
 /* Estilos para h3 */
 h3 {
-  font-size: 1.75em;
+  font-size: 1.5em;
 }
 
 /* Estilos para h4 */
 h4 {
-  font-size: 1.5em;
+  font-size: 1.25em;
 }
 
 /* Estilos para h5 */
 h5 {
-  font-size: 1.25em;
+  font-size: 1em;
 }
 
 /* Estilos para h6 */
