@@ -29,24 +29,19 @@ class RenderService
   private
 
   def build_alert(type, message, alignment)
-    icon, color = case type
-      when "danger"
-        ['<i class="fa-solid fa-triangle-exclamation" style="color: #a80000;"></i>', "danger_alert"]
-      when "info"
-        ['<i class="fa-solid fa-circle-info" style="color: #00a2b1;"></i>', "info_alert"]
-      when "warning"
-        ['<i class="fa-solid fa-circle-exclamation" style="color: #b17601;"></i>', "warning_alert"]
-      when "primary"
-        ['<i class="fa-solid fa-circle-info" style="color: #0071ad;"></i>', "primary_alert"]
-      when "secondary"
-        ['<i class="fa-solid fa-circle-info" style="color: #005994;"></i>', "secondary_alert"]
-      when "success"
-        ['<i class="fa-solid fa-circle-check" style="color: #00a32c;"></i>', "success_alert"]
-      when "light"
-        ['<i class="fa-solid fa-circle-info" style="color: #778da3;"></i>', "light_alert"]
-      when "dark"
-        ['<i class="fa-solid fa-circle-info" style="color: #fff;"></i>', "dark_alert"]
-      end
+    alert_types = {
+      "danger" => { icon: '<i class="fa-solid fa-triangle-exclamation" style="color: #a80000;"></i>', color: "danger_alert" },
+      "info" => { icon: '<i class="fa-solid fa-circle-info" style="color: #00a2b1;"></i>', color: "info_alert" },
+      "warning" => { icon: '<i class="fa-solid fa-circle-exclamation" style="color: #b17601;"></i>', color: "warning_alert" },
+      "primary" => { icon: '<i class="fa-solid fa-circle-info" style="color: #0071ad;"></i>', color: "primary_alert" },
+      "secondary" => { icon: '<i class="fa-solid fa-circle-info" style="color: #005994;"></i>', color: "secondary_alert" },
+      "success" => { icon: '<i class="fa-solid fa-circle-check" style="color: #00a32c;"></i>', color: "success_alert" },
+      "light" => { icon: '<i class="fa-solid fa-circle-info" style="color: #778da3;"></i>', color: "light_alert" },
+      "dark" => { icon: '<i class="fa-solid fa-circle-info" style="color: #fff;"></i>', color: "dark_alert" },
+    }
+
+    icon = alert_types[type][:icon]
+    color = alert_types[type][:color]
 
     "<div class='render-alert #{color} text-#{alignment}'>
       #{icon}
@@ -97,20 +92,30 @@ class RenderService
     </blockquote>"
   end
 
-  def build_table(hasHeadings, content)
-    head, body = "", ""
+  def build_table(has_headings, content)
+    head, body_rows = "", []
     content.each_with_index do |row, index|
-      elements = row.map do |cell|
-        tag = (index == 0 && hasHeadings) ? "th" : "td"
-        "<#{tag}>#{cell}</#{tag}>"
-      end.join
-      if index == 0 && hasHeadings
-        head = "<thead><tr>#{elements}</tr></thead>"
+      if index == 0 && has_headings
+        head = build_table_head(row)
       else
-        body << "<tr>#{elements}</tr>"
+        body_rows << row
       end
     end
-    body = "<tbody>#{body}</tbody>" unless body.empty?
+    body = build_table_body(body_rows) unless body_rows.empty?
     "<table>#{head}#{body}</table>"
+  end
+
+  def build_table_row(tag, row)
+    elements = row.map { |cell| "<#{tag}>#{cell}</#{tag}>" }.join
+    "<tr>#{elements}</tr>"
+  end
+
+  def build_table_head(row)
+    "<thead>#{build_table_row("th", row)}</thead>"
+  end
+
+  def build_table_body(rows)
+    body_rows = rows.map { |row| build_table_row("td", row) }.join
+    "<tbody>#{body_rows}</tbody>"
   end
 end
