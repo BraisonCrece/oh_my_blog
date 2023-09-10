@@ -1,6 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 import EditorJS from "../editorjs.mjs"
-import {Tools} from '../config/config'
+import { Tools } from '../config/config'
+import { MermaidTool } from "editorjs-mermaid"
 
 // Connects to data-controller="editor"
 export default class extends Controller {
