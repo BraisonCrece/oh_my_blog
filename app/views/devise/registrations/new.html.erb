@@ -1,5 +1,8 @@
-<div class="w-full md:w-1/2 mx-auto bg-white p-8 mt-20 rounded shadow-md shadow-stone-400">
-  <h2 class="text-2xl font-semibold mb-4 text-blue-500">Sign up</h2>
+<div class="md:w-3/4 mx-auto bg-white p-8 mt-20 rounded shadow-md shadow-stone-400">
+  <div class="flex justify-between items-baseline">
+    <h2 class="text-2xl font-semibold mb-4 text-blue-500">Sign up</h2>
+    <span class="text-gray-900 text-sm font-thin">* Mandatory fields</span>
+  </div>
   
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "space-y-4" }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
@@ -23,8 +26,7 @@
     </div>
 
     <div class="space-y-2 flex justify-between items-center">
-      <%= f.submit "Sign up", class: "bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 cursor-pointer" %>
-      <span class="text-gray-500">* Mandatory fields</span>
+       <%= f.submit "Sign up", class: "w-full bg-blue-500 text-white text-lg font-medium px-8 py-1 mx-auto rounded hover:bg-blue-600 cursor-pointer" %>
     </div>
   <% end %>
 
