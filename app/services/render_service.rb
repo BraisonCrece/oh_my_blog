@@ -15,6 +15,10 @@ class RenderService
         build_alert(block["data"]["type"], block["data"]["message"], block["data"]["align"])
       when "image"
         build_image(block["data"]["file"]["url"], block["data"]["caption"], block["data"]["withBorder"], block["data"]["withBackground"], block["data"]["stretched"])
+      when "quote"
+        build_quote(block["data"]["text"], block["data"]["caption"], block["data"]["alignment"])
+      when "table"
+        build_table(block["data"]["withHeadings"], block["data"]["content"])
       else
         ""
       end
@@ -83,5 +87,30 @@ class RenderService
                   <figcaption class="centered-content">#{caption}</figcaption>
               </figure>
           HTML
+  end
+
+  def build_quote(text, caption, alignment)
+    caption = "<caption>#{caption}</caption>"
+    "<blockquote>
+      <p>#{text}</p>
+      #{caption if caption}
+    </blockquote>"
+  end
+
+  def build_table(hasHeadings, content)
+    head, body = "", ""
+    content.each_with_index do |row, index|
+      elements = row.map do |cell|
+        tag = (index == 0 && hasHeadings) ? "th" : "td"
+        "<#{tag}>#{cell}</#{tag}>"
+      end.join
+      if index == 0 && hasHeadings
+        head = "<thead><tr>#{elements}</tr></thead>"
+      else
+        body << "<tr>#{elements}</tr>"
+      end
+    end
+    body = "<tbody>#{body}</tbody>" unless body.empty?
+    "<table>#{head}#{body}</table>"
   end
 end

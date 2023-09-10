@@ -3,9 +3,11 @@ import Paragraph from "@editorjs/paragraph"
 import AceCodeEditorJS from "ace-code-editorjs";
 import "ace-builds/esm-resolver";
 import ImageTool from '@editorjs/image';
+import Underline from '@editorjs/underline';
+import Table from '@editorjs/table';
 const Header = require("editorjs-header-with-alignment")
 const Alert = require('editorjs-alert');
-const Warning = require('@editorjs/warning');
+const Quote = require('@editorjs/quote');
 // @ts-ignore
 
 const aceConfig = {
@@ -98,12 +100,6 @@ export const Tools = {
             inlineToolbar: true
         }
     },
-    code: {
-        class: AceCodeEditorJS,
-        config: aceConfig,
-    },
-    warning: Warning,
-    alert: Alert,
     image: {
         class: ImageTool,
         config: {
@@ -113,6 +109,29 @@ export const Tools = {
             additionalRequestHeaders: {
                 "X-CSRF-Token": csrfToken()
             }
+        }
+    },
+    code: {
+        class: AceCodeEditorJS,
+        config: aceConfig,
+    },
+    alert: Alert,
+    underline: Underline,
+    table: {
+        class: Table,
+        inlineToolbar: true,
+        config: {
+            rows: 2,
+            cols: 3,
+        },
+    },
+    quote: {
+        class: Quote,
+        inlineToolbar: true,
+        shortcut: 'CMD+SHIFT+O',
+        config: {
+            quotePlaceholder: 'Enter a quote',
+            captionPlaceholder: 'Quote\'s author',
         }
     }
 }

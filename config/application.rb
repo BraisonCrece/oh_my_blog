@@ -35,3 +35,12 @@ module OhMyBlog
     config.generators.system_tests = nil
   end
 end
+
+class Array
+  def each_with_index_and_object(obj)
+    each_with_index do |element, index|
+      yield(element, index, obj)
+    end
+    obj
+  end
+end
