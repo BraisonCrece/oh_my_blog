@@ -177,3 +177,12 @@ ul {
   margin-right: auto;
   text-align: center;
 }
+
+
+.inline-code::before, .inline-code::after {
+    content: "";
+}
+
+.inline-code {
+    border-radius: 0px !important;
+}
