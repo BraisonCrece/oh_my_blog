@@ -9,9 +9,26 @@
   font-style: normal;
 }
 
+article {
+  margin: 4rem 0rem !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.74);
+}
+
+h1, h2, h3 {
+  padding: 0 !important;
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
+p {
+  padding: 0 !important;
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
 pre {
   border-radius: 8px;
-  margin: 2rem 0 !important;
+  margin: 0rem 0 !important;
 }
 
 /* Editor JS */
@@ -20,6 +37,10 @@ pre {
 .ce-block,
 .codex-editor {
   max-width: 100% !important;
+}
+
+.codex-editor__redactor {
+  padding: 0rem 0rem 4rem 0rem !important;
 }
 
 .balance {
@@ -42,8 +63,8 @@ pre {
 }
 
 .render-alert {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   padding: 1.5rem;
   border-radius: 10px;
   border: 1px solid;
