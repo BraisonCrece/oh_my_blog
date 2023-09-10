@@ -4,86 +4,109 @@
 
 @font-face {
   font-family: "Futura";
-  src: asset-path(
-    "futura/futur.ttf"
-  );
+  src: asset-path("futura/futur.ttf");
   font-weight: normal;
   font-style: normal;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: bold;
-  margin-bottom: 0.5em;
+pre {
+  border-radius: 8px;
+  margin: 2rem 0 !important;
+}
+
+/* Editor JS */
+.codex-editor__redactor,
+.ce-paragraph,
+.ce-block,
+.codex-editor {
+  max-width: 100% !important;
+}
+
+.balance {
   text-wrap: balance;
+  text-align: center;
 }
 
-h1 {
-  font-size: 2em;
-  /* line-height: .8em; */
+.ace_gutter {
+  z-index: 0;
 }
 
-/* Estilos para h2 */
-h2 {
-  font-size: 1.75em;
+.text-shadow {
+  text-shadow: -1px 1px 2px #84cc16;
 }
 
-/* Estilos para h3 */
-h3 {
-  font-size: 1.5em;
+.blur_effect {
+  --tw-bg-opacity: 0.95;
+  background-color: rgb(248 250 252 / var(--tw-bg-opacity));
+  backdrop-filter: blur(10);
 }
 
-/* Estilos para h4 */
-h4 {
-  font-size: 1.25em;
+.render-alert {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid;
 }
 
-/* Estilos para h5 */
-h5 {
-  font-size: 1em;
+.danger_alert {
+  background-color: #fff5f5;
+  border-color: #ff0000;
+  color: #a80000;
 }
 
-/* Estilos para h6 */
-h6 {
-  font-size: 1em;
+.info_alert {
+  background-color: #effeff;
+  border-color: #36eeff;
+  color: #00a2b1;
+}
+
+.warning_alert {
+  background-color: #fffaf0;
+  border-color: #ffaa00;
+  color: #b17601;
+}
+
+.primary_alert {
+  background-color: #ddfcff;
+  border-color: #00eaff;
+  color: #0071ad;
+}
+
+.secondary_alert {
+  background-color: #f7fafc;
+  border-color: #0099ff;
+  color: #005994;
+}
+
+.success_alert {
+  background-color: #f0fff4;
+  border-color: #00ff44;
+  color: #00a32c;
+}
+
+.light_alert {
+  background-color: transparent;
+  border-color: #adb0b4;
+  color: #778da3;
+}
+
+.dark_alert {
+  background-color: #2d3748;
+  border-color: #fff;
+  color: #fff;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+ol {
+  list-style-type: decimal;
+  list-style-position: inside;
 }
 
 ul {
   list-style: disc;
+  list-style-position: inside;
 }
-
-li {
-  margin-top: 0.25em;
-  margin-bottom: 0.25em;
-  margin-left: 1.2rem;
-}
-
-pre {
-    border-radius: 8px;
-    margin: 2rem 0 !important;
-}
-
-/* Editor JS */
-.codex-editor__redactor, .ce-paragraph, .ce-block, .codex-editor {
-    max-width: 100% !important;
-}
-
-
-.balance {
-    text-wrap: balance;
-    text-align: center;
-}
-
-.ace_gutter {
-    z-index: 0;
-}
-
-.text-shadow {
-    text-shadow: -1px 1px 2px  #84cc16;
-}
-
-.blur_effect {
-    --tw-bg-opacity: 0.95;
-    background-color: rgb(248 250 252 / var(--tw-bg-opacity));
-    backdrop-filter: blur(10);
-}
-
