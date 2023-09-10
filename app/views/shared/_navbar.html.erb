@@ -1,41 +1,42 @@
-<div id="container" class=" z-10 sticky top-0" data-controller="toggle-menu">
-  <nav class="w-full bg-blue-500 p-6" >
+<div id="container" class="z-10 sticky top-0" data-controller="toggle-menu" data-toggle-menu-target="nav">
+  <nav class="w-full bg-slate-50 p-6">
     <div class="w-full flex justify-center ">
       <div class="w-full sm:w-4/5 lg:w-3/4 xl:w-2/3 flex justify-between items-center">
-        <!--
-        Defino o atributo / data: { turbo: false } / en algúns links para
-        previr que o resaltado da sintaxis non se execute debido a algunha
-        configuración de Turbo que descoñezo. Este é un fix temporal
-      -->
         <%= link_to articles_path do %>
-          <h2 class="text-white text-xl font-bold inline">Oh My Blog!</h2>
+          <h2 class="text-slate-600 text-xl font-thin inline text-shadow">📑 OhMyBlog!</h2>
         <% end %>
-        <ul class="md:flex space-x-4 list-none hidden">
+        <ul class="lg:flex space-x-4 list-none hidden">
           <%= link_to articles_path  do %>
-            <li><span class="text-white font-bold hover:text-gray-300">Artículos Recientes</span></li>
+            <li class="text-slate-500 font-thin hover:text-blue-500">Artículos Recientes</li>
           <% end %>
           <%= link_to new_article_path do %>
-            <li><span class="text-white font-bold hover:text-gray-300">Nuevo Artículo</span></li>
+            <li class="text-slate-500 font-thin hover:text-blue-500">Nuevo Artículo</li>
           <% end %>
-          <%= button_to destroy_user_session_path, method: :delete, class: "w-full" do %>
-            <li class="text-white font-bold hover:text-gray-300">Logout</li>
+          <% if current_user %>
+            <%= button_to destroy_user_session_path, method: :delete do %>
+              <li class="text-slate-500 font-thin hover:text-red-300">Cerrar sesión</li>
+            <% end %>
           <% end %>
         </ul>
-        <button class="text-gray-50 md:hidden" data-toggle-menu-target="button" >
-          <%= image_tag "hamburguer_menu", class: "h-14 w-14 "%>
+        <button class="text-gray-50 lg:hidden" data-toggle-menu-target="button" >
+          <svg width="45px" height="45px" stroke="#03220B" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" fill="#363636" stroke-width="0"/>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+            <g id="SVGRepo_iconCarrier"> <path d="M20 7L4 7" stroke="#03220B" stroke-width="1.5" stroke-linecap="round"/> <path d="M20 12L4 12" stroke="#03220B" stroke-width="1.5" stroke-linecap="round"/> <path d="M20 17L4 17" stroke="#03220B" stroke-width="1.5" stroke-linecap="round"/> </g>
+          </svg>
         </button>
       </div>
     </div>
   </nav>
-  <ul class="md:hidden list-none w-full absolute -z-10 bg-white transition-all -translate-y-full duration-500 ease-in-out shadow" data-toggle-menu-target="list">
+  <ul class=" blur_effect lg:hidden list-none w-full absolute -z-10 bg-white transition-all -translate-y-full duration-500 ease-in-out" data-toggle-menu-target="list">
     <%= link_to articles_path, class: "w-full flex justify-center"  do %>
-      <li class="text-black font-bold hover:text-gray-300 mx-auto p-4 text-center">Artículos Recientes</li>
+      <li class="text-slate-500 font-thin text-lg hover:text-blue-500 mx-auto p-4 text-center">Artículos Recientes</li>
     <% end %>
     <%= link_to new_article_path, class: "w-full" do %>
-      <li class="text-black font-bold hover:text-gray-300 mx-auto p-4 text-center">Nuevo Artículo</li>
+      <li class="text-slate-500 font-thin text-lg hover:text-blue-500 mx-auto p-4 text-center">Nuevo Artículo</li>
     <% end %>
     <%= button_to destroy_user_session_path, method: :delete, class: "w-full" do %>
-      <li class="text-black font-bold hover:text-gray-300 mx-auto p-4 text-center">Logout</li>
+      <li class="text-slate-500 font-thin text-lg hover:text-red-300 mx-auto p-4 text-center">Logout</li>
     <% end %>
   </ul>
 </div>

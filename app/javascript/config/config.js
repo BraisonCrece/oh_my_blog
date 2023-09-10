@@ -3,7 +3,7 @@ import Paragraph from "@editorjs/paragraph"
 import AceCodeEditorJS from "ace-code-editorjs";
 import "ace-builds/esm-resolver";
 const Header = require("editorjs-header-with-alignment")
-const Alert =  require('editorjs-alert');
+const Alert = require('editorjs-alert');
 const Warning = require('@editorjs/warning');
 // @ts-ignore
 
@@ -16,6 +16,14 @@ const aceConfig = {
         html: {
             label: "HTML",
             mode: "ace/mode/html",
+        },
+        ruby: {
+            label: "Ruby",
+            mode: "ace/mode/ruby",
+        },
+        erb: {
+            label: "Erb",
+            mode: "ace/mode/erb",
         },
         javascript: {
             label: "JavaScript",
@@ -45,13 +53,21 @@ const aceConfig = {
             label: "SQL",
             mode: "ace/mode/sql",
         },
-        ruby: {
-            label: "Ruby",
-            mode: "ace/mode/ruby",
+        python: {
+            label: "Python",
+            mode: "ace/mode/python",
+        },
+        rust: {
+            label: "Rust",
+            mode: "ace/mode/rust",
+        },
+        go: {
+            label: "Go",
+            mode: "ace/mode/golang",
         },
     },
     options: {
-        fontSize: 16,
+        fontSize: 18,
         minLines: 1,
         theme: "ace/theme/one_dark",
         hScrollBarAlwaysVisible: false,

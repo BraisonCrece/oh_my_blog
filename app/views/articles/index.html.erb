@@ -1,11 +1,9 @@
-<p style="color: green"><%= notice %></p>
 <h1>Articles</h1>
 <div id="articles" class="font-futura">
   <% @articles.each do |article| %>
-    <%= render article %>
-    <p>
+    <article class="mb-28">
+      <%= render article %>
       <%= link_to "Show this article", article %>
-    </p>
+    </article>
   <% end %>
 </div>
-<%= link_to "New article", new_article_path %>
