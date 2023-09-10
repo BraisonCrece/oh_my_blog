@@ -1,8 +1,14 @@
 <section class="z-50 fixed top-5 left-0 right-0 flex flex-col items-center w-full -translate-y-[300px] transition-all duration-700 ease-in-out" data-controller="alert" data-alert-target="container">
   <% if notice %>
-    <span class="alert p-8 rounded-lg shadow-lg text-center bg-green-200 text-green-800 w-[90%] sm:max-w-md"><%= notice %></span>
+    <span class="alert p-8 rounded-lg shadow-lg text-center bg-green-200 text-green-800 w-[90%] sm:max-w-md">
+      <i class="fa-solid fa-circle-check" style="color: #00a32c;"></i>
+      <%= notice %>
+    </span>
   <% end %>
   <% if alert %>
-    <span class="alert p-8 rounded-lg shadow-lg text-center bg-red-200 text-red-800 w-[90%] sm:max-w-md"><%= alert %></span>
+    <span class="alert p-8 rounded-lg shadow-lg text-center bg-red-200 text-red-800 w-[90%] sm:max-w-md">
+      <i class="fa-solid fa-triangle-exclamation" style="color: #a80000;"></i>
+      <%= alert %>
+    </span>
   <% end %>
 </section>
