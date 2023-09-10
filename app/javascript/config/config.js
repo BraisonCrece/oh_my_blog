@@ -8,7 +8,7 @@ import Table from '@editorjs/table';
 const Header = require("editorjs-header-with-alignment")
 const Alert = require('editorjs-alert');
 const Quote = require('@editorjs/quote');
-// @ts-ignore
+const InlineCode = require('@editorjs/inline-code');
 
 const aceConfig = {
     languages: {
@@ -133,6 +133,10 @@ export const Tools = {
             quotePlaceholder: 'Enter a quote',
             captionPlaceholder: 'Quote\'s author',
         }
+    },
+    inlineCode: {
+        class: InlineCode,
+        shortcut: 'CMD+SHIFT+M',
     }
 }
 

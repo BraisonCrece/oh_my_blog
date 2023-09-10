@@ -39,6 +39,13 @@
   dependencies:
     "@codexteam/icons" "^0.0.6"
 
+"@editorjs/inline-code@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@editorjs/inline-code/-/inline-code-1.4.0.tgz#25e9728bc6c73b7af2a009689679b4950e744417"
+  integrity sha512-nJJx2eBgQyml7U8MdMdJNFY2RgZCOuvvXHEW73xsdu36ZXCd44eAo7vq1S5Jz9l8bC676SvNbRfeH/nojXK37A==
+  dependencies:
+    "@codexteam/icons" "^0.0.5"
+
 "@editorjs/list@^1.8.0":
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/@editorjs/list/-/list-1.8.0.tgz#c64b88679f23c0129ffac589004300832c345d3b"
