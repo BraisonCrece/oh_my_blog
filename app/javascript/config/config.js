@@ -2,6 +2,7 @@ import List from "@editorjs/list"
 import Paragraph from "@editorjs/paragraph"
 import AceCodeEditorJS from "ace-code-editorjs";
 import "ace-builds/esm-resolver";
+import ImageTool from '@editorjs/image';
 const Header = require("editorjs-header-with-alignment")
 const Alert = require('editorjs-alert');
 const Warning = require('@editorjs/warning');
@@ -102,5 +103,21 @@ export const Tools = {
         config: aceConfig,
     },
     warning: Warning,
-    alert: Alert
+    alert: Alert,
+    image: {
+        class: ImageTool,
+        config: {
+            endpoints: {
+                byFile: `/articles/upload_image`
+            },
+            additionalRequestHeaders: {
+                "X-CSRF-Token": csrfToken()
+            }
+        }
+    }
+}
+
+function csrfToken() {
+    const metaTag = document.querySelector("meta[name='csrf-token']")
+    return metaTag ? metaTag.content : ""
 }

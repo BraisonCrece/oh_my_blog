@@ -27,6 +27,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
+        @article.save_article_images
         format.html { redirect_to article_url(@article), notice: "Article was successfully created." }
         format.json { render :show, status: :created, location: @article }
       else
@@ -40,6 +41,7 @@ class ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params)
+        @article.save_article_images
         format.html { redirect_to article_url(@article), notice: "Article was successfully updated." }
         format.json { render :show, status: :ok, location: @article }
       else
@@ -59,14 +61,28 @@ class ArticlesController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_article
-      @article = Article.find(params[:id])
+  def upload_image
+    image = params[:image]
+    if image.nil?
+      render json: { success: 0, error: "No image found in request" }
+      return
     end
+    upload_image = ArticleImage.create! image: image
+    stored_image_url = rails_blob_url(upload_image.image)
+    render json: { success: 1, file: { url: stored_image_url } }
+  rescue StandardError => e
+    render json: { success: 0, error: e.message }
+  end
 
-    # Only allow a list of trusted parameters through.
-    def article_params
-      params.require(:article).permit(:title, :content, :user_id)
-    end
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_article
+    @article = Article.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def article_params
+    params.require(:article).permit(:title, :content, :image)
+  end
 end
