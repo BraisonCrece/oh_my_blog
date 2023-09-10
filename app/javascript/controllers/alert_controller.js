@@ -17,6 +17,6 @@ export default class extends Controller {
         setTimeout(() => {
             alert.classList.add("-translate-y-[300px]");
             // document.querySelector(".alert").remove
-        }, 3000);
+        }, 2250);
     }
 }
