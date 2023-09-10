@@ -36,18 +36,18 @@
   <ul class=" blur_effect lg:hidden list-none w-full absolute -z-10 bg-white transition-all -translate-y-full duration-500 ease-in-out" data-toggle-menu-target="list">
     <% unless current_user %>
       <%= link_to new_user_session_path, class: "w-full flex justify-center" do %>
-        <li class="text-slate-500 font-thin hover:text-blue-500">Log in</li>
+        <li class="text-slate-500 font-thin text-lg hover:text-blue-500 mx-auto py-6 text-center">Log in</li>
       <% end %>
     <% end %>
     <%= link_to articles_path, class: "w-full flex justify-center"  do %>
-      <li class="text-slate-500 font-thin text-lg hover:text-blue-500 mx-auto p-4 text-center">Artículos Recientes</li>
+      <li class="text-slate-500 font-thin text-lg hover:text-blue-500 mx-auto py-6 text-center">Artículos Recientes</li>
     <% end %>
     <% if current_user %>
       <%= link_to new_article_path, class: "w-full" do %>
-        <li class="text-slate-500 font-thin text-lg hover:text-blue-500 mx-auto p-4 text-center">Nuevo Artículo</li>
+        <li class="text-slate-500 font-thin text-lg hover:text-blue-500 mx-auto py-6 text-center">Nuevo Artículo</li>
       <% end %>
       <%= button_to destroy_user_session_path, method: :delete, class: "w-full" do %>
-        <li class="text-slate-500 font-thin text-lg hover:text-red-300 mx-auto p-4 text-center">Logout</li>
+        <li class="text-slate-500 font-thin text-lg hover:text-red-300 mx-auto py-6 text-center">Logout</li>
       <% end %>
     <% end %>
   </ul>
