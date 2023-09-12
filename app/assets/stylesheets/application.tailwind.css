@@ -133,7 +133,7 @@ ul {
 
 /* ARTICLE IMAGES */
 :root {
-  --bg-color: #717379;
+  --bg-color: #a0a3acc0;
   --front-color: #388ae5;
   --border-color: #e8e8eb;
 }
@@ -184,4 +184,9 @@ ul {
 
 .inline-code {
     border-radius: 0px !important;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
 }
