@@ -3,23 +3,23 @@
     <div class="w-full flex justify-center ">
       <div class="w-full sm:w-4/5 lg:w-3/4 xl:w-2/3 flex justify-between items-center">
         <%= link_to articles_path do %>
-          <h2 class="text-slate-600 text-xl font-thin inline text-shadow">📑 OhMyBlog!</h2>
+          <h2 class="text-slate-600 text-2xl lg:text-3xl tracking-[-0.15rem] font-thin inline text-shadow">📑 OhMyBlog!</h2>
         <% end %>
-        <ul class="lg:flex space-x-4 list-none hidden">
+        <ul class="lg:flex gap-8 list-none hidden">
           <% unless current_user %>
             <%= link_to new_user_session_path do %>
-              <li class="text-slate-500 font-thin hover:text-blue-500">Log in</li>
+              <li class="text-slate-500 font-thin hover:text-blue-500 text-xl">Log in</li>
             <% end %>
           <% end %>
           <%= link_to articles_path  do %>
-            <li class="text-slate-500 font-thin hover:text-blue-500">Artículos Recientes</li>
+            <li class="text-slate-500 font-thin hover:text-blue-500 text-xl">Artículos Recientes</li>
           <% end %>
           <% if current_user %>
             <%= link_to new_article_path do %>
-              <li class="text-slate-500 font-thin hover:text-blue-500">Nuevo Artículo</li>
+              <li class="text-slate-500 font-thin hover:text-blue-500 text-xl">Nuevo Artículo</li>
             <% end %>
             <%= button_to destroy_user_session_path, method: :delete do %>
-              <li class="text-slate-500 font-thin hover:text-red-300">Logout</li>
+              <li class="text-slate-500 font-thin hover:text-red-300 text-xl">Logout</li>
             <% end %>
           <% end %>
         </ul>

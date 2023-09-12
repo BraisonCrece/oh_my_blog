@@ -1,4 +1,4 @@
-<%= form_with(model: article, data: { controller: "editor" }, class: "bg-white p-8 rounded-lg shadow-md max-w-[725px] mx-auto") do |form| %>
+<%= form_with(model: article, data: { controller: "editor" }, class: "bg-white p-8 rounded-lg shadow-md max-w-[725px] mx-auto prose lg:prose-xl") do |form| %>
   <% if article.errors.any? %>
     <div class="bg-red-100 text-red-700 p-4 rounded-lg mb-6">
       <h2 class="font-bold"><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
