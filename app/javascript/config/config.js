@@ -9,6 +9,7 @@ const Header = require("editorjs-header-with-alignment")
 const Alert = require('editorjs-alert');
 const Quote = require('@editorjs/quote');
 const InlineCode = require('@editorjs/inline-code');
+const Marker = require('@editorjs/marker')
 
 const aceConfig = {
     languages: {
@@ -84,7 +85,7 @@ export const Tools = {
     header: {
         class: Header,
         inlineToolbar: true,
-        levels: [1, 2, 3, 4],
+        levels: [1, 2, 3, 4, 5, 6],
         defaultLevel: 1,
         defaultAlignment: 'center'
     },
@@ -137,8 +138,12 @@ export const Tools = {
     },
     inlineCode: {
         class: InlineCode,
+        shortcut: 'CMD+SHIFT+I',
+    },
+    Marker: {
+        class: Marker,
         shortcut: 'CMD+SHIFT+M',
-    }
+      }
 }
 
 function csrfToken() {
