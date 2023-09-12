@@ -76,12 +76,12 @@ class RenderService
     container_class = container_classes.join(" ")
     image_class = image_classes.join(" ")
 
-    image_html = <<-HTML
-              <figure class="#{container_class}">
-                  <img src='#{url}' alt='#{caption}' class='#{image_class}' />
-                  <figcaption class="centered-content">#{caption}</figcaption>
-              </figure>
-          HTML
+    image_html = "
+    <figure class='#{container_class}'>
+      <img src='#{url}' alt='#{caption}' class='#{image_class}' />
+      #{"<figcaption class='centered-content'>#{caption}</figcaption>" unless caption.blank?}
+    </figure>
+    "
   end
 
   def build_quote(text, caption, alignment)

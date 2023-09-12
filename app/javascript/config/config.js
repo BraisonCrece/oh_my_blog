@@ -85,7 +85,8 @@ export const Tools = {
         class: Header,
         inlineToolbar: true,
         levels: [1, 2, 3, 4],
-        defaultLevel: 1
+        defaultLevel: 1,
+        defaultAlignment: 'center'
     },
     list: {
         class: List,
