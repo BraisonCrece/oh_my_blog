@@ -16,5 +16,8 @@ application.register("editor", EditorController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import PicturePreviewController from "./picture_preview_controller"
+application.register("picture-preview", PicturePreviewController)
+
 import ToggleMenuController from "./toggle_menu_controller"
 application.register("toggle-menu", ToggleMenuController)
