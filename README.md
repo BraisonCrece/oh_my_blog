@@ -70,3 +70,5 @@ This project is open-source and available under the [MIT License](LICENSE).
 ## Made With ❤️ by [BraisonCrece](https://github.com/braisoncrece), [ManuSG8](https://github.com/manuSG8), [Sushanthbc](https://github.com/Sushanthbc)
 
 ![image](https://github.com/BraisonCrece/oh_my_blog/assets/104019638/9ba89f45-cc7d-47b9-914c-fe8473ed6808)
+![image](https://github.com/BraisonCrece/oh_my_blog/assets/104019638/e6fc2aa1-fc1a-4559-99d7-ebf0786251ee)
+
