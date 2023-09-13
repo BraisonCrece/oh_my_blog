@@ -24,16 +24,11 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.user = current_user
-
-    respond_to do |format|
-      if @article.save
-        @article.save_article_images
-        format.html { redirect_to article_url(@article), notice: "Article was successfully created." }
-        format.json { render :show, status: :created, location: @article }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
-      end
+    if @article.save
+      @article.save_article_images
+      redirect_to article_url(@article), notice: "Article was successfully created."
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
