@@ -190,3 +190,26 @@ h1 {
     font-size: 2rem;
     font-weight: bold;
 }
+
+/* Personaliza el contenedor de la barra */
+::-webkit-scrollbar {
+    width: 12px;  /* Ancho de la barra vertical */
+    height: 12px;  /* Altura de la barra horizontal */
+  }
+
+  /* Personaliza el track o la pista de la barra */
+  ::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+  }
+
+  /* Personaliza el thumb o el mango de la barra */
+  ::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+  }
+
+  /* Cambia el color del thumb al pasar el ratón */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
