@@ -1,0 +1,21 @@
+<ul class="lg:flex gap-8 list-none hidden">
+  <% unless current_user %>
+    <%= link_to new_user_session_path do %>
+      <li class="text-slate-500 font-thin hover:text-blue-500 text-xl">Log in</li>
+    <% end %>
+  <% end %>
+  <%= link_to articles_path  do %>
+    <li class="text-slate-500 font-thin hover:text-blue-500 text-xl">Recent Articles</li>
+  <% end %>
+  <% if current_user %>
+    <%= link_to new_article_path do %>
+      <li class="text-slate-500 font-thin hover:text-blue-500 text-xl">New Article</li>
+    <% end %>
+    <%= link_to profile_path(current_user) do %>
+      <li class="text-slate-500 font-thin hover:text-blue-500 text-xl">My profile</li>
+    <% end %>
+    <%= button_to destroy_user_session_path, method: :delete do %>
+      <li class="text-slate-500 font-thin hover:text-red-300 text-xl">Logout</li>
+    <% end %>
+  <% end %>
+</ul>
