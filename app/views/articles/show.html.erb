@@ -1,8 +1,8 @@
 <article class="mb-mb-28">
   <%= render @article %>
   <div>
-    <%= link_to "✏ Edit this article", edit_article_path(@article), class: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full" %> 
-    <%= link_to "↩ Back to articles", articles_path, class: "bg-gray-400 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded-full" %>
+    <%= link_to "🖊 Edit this article", edit_article_path(@article), class: "border-[1px] border-green-200 bg-green-100 hover:bg-green-400 hover:text-white hover:shadow-lg text-green-900 font-base text-xl py-2 px-4 rounded-full transition-all duration-100" %>
+    <%= link_to "👈 Back to articles", articles_path, class: "border-[1px] border-gray-200 bg-gray-100 hover:bg-gray-400 hover:text-white hover:shadow-lg text-gray-900 font-base text-xl py-2 px-4 rounded-full transition-all duration-100" %>
     <%= button_to "Destroy this article", @article, method: :delete, class: "mt-4 text-red-800 text-md underline decoration-2 underline-offset-2 font-bold" %>
   </div>
 </article>
