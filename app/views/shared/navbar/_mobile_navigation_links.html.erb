@@ -1,21 +1,21 @@
-<ul class=" blur_effect lg:hidden list-none w-full absolute -z-10 bg-white transition-all -translate-y-full duration-500 ease-in-out" data-toggle-menu-target="list">
+<ul class="mobile-menu blur_effect lg:hidden list-none w-full absolute -z-10 bg-white transition-all -translate-y-full duration-500 ease-in-out" data-toggle-menu-target="list">
   <% unless current_user %>
     <%= link_to new_user_session_path, class: "w-full flex justify-center" do %>
-      <li class="text-slate-500 font-thin text-lg hover:text-blue-500 mx-auto py-6 text-center">Log in</li>
+      <li class="nav-link text-slate-900 font-thin text-lg hover:text-blue-500 mx-auto py-6 text-center transition-all duration-1000">Log in</li>
     <% end %>
   <% end %>
   <%= link_to articles_path, class: "w-full flex justify-center"  do %>
-    <li class="text-slate-500 font-thin text-lg hover:text-blue-500 mx-auto py-6 text-center">Recent Articles</li>
+    <li class="nav-link text-slate-900 font-thin text-lg hover:text-blue-500 mx-auto py-6 text-center transition-all duration-1000">Recent Articles</li>
   <% end %>
   <% if current_user %>
     <%= link_to new_article_path, class: "w-full" do %>
-      <li class="text-slate-500 font-thin text-lg hover:text-blue-500 mx-auto py-6 text-center">New Article</li>
+      <li class="nav-link text-slate-900 font-thin text-lg hover:text-blue-500 mx-auto py-6 text-center transition-all duration-1000">New Article</li>
     <% end %>
     <%= link_to profile_path(current_user), class: "w-full" do %>
-      <li class="text-slate-500 font-thin text-lg hover:text-blue-500 mx-auto py-6 text-center">My Profile</li>
+      <li class="nav-link text-slate-900 font-thin text-lg hover:text-blue-500 mx-auto py-6 text-center transition-all duration-1000">My Profile</li>
     <% end %>
     <%= button_to destroy_user_session_path, method: :delete, class: "w-full" do %>
-      <li class="text-slate-500 font-thin text-lg hover:text-red-300 mx-auto py-6 text-center"><%= image_tag "shutdown.svg", class: "inline mx-auto w-6" %>Logout</li>
+      <li class="nav-link text-slate-900 font-thin text-lg hover:text-red-300 mx-auto py-6 text-center transition-all duration-1000"><%= image_tag "shutdown.svg", class: "inline mx-auto w-6" %>Logout</li>
     <% end %>
   <% end %>
 </ul>

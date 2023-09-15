@@ -1,9 +1,9 @@
 <div id="<%= dom_id article %>" class="prose lg:prose-xl">
-  <div class="flex w-ful items-center gap-4">
-    <%= link_to profile_path(article.user), class: "min-w-[15%]" do %>
-      <%= image_tag article.user.picture.attached? ? article.user.picture : "user_placeholder", data: { picture_preview_target: "preview" }, class: "ring-1 ring-lime-200 hover:drop-shadow-xl object-cover rounded-full overflow-hidden w-24 shadow-md aspect-square transition-all duration-200"  %>
+  <div class="flex w-ful items-center gap-4 max-h-min">
+    <%= link_to profile_path(article.user), class: "min-w-[15%] m-0" do %>
+      <%= image_tag article.user.picture.attached? ? article.user.picture : "user_placeholder", data: { picture_preview_target: "preview" }, class: "ring-1 ring-lime-200 hover:drop-shadow-xl object-cover rounded-full overflow-hidden w-24 shadow-md aspect-square transition-all duration-200 m-0"  %>
     <% end %>
-    <p class="min-w-[85%] flex align-super balance mb-0 py-0 text-5xl font-semibold underline underline-offset-8 decoration-lime-500 decoration-1 text-blue-900 grow">
+    <p class="min-w-[85%] flex align-super balance mb-0 py-0 text-5xl font-semibold underline underline-offset-8 decoration-lime-500 decoration-1 text-blue-900 grow m-0">
       <%= article.title %>
     </p>
   </div>
