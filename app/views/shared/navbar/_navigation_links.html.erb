@@ -11,8 +11,8 @@
     <%= link_to new_article_path do %>
       <li class="flex items-center gap-2 text-slate-500 font-thin hover:text-blue-500 text-xl"><%= image_tag "new.svg", class: "inline w-6" %>New Article</li>
     <% end %>
-    <%= button_to destroy_user_session_path, method: :delete do %>
-      <li class="flex items-center gap-2 text-slate-500 font-thin hover:text-red-300 text-xl"><%= image_tag "shutdown.svg", class: "inline w-6 opacity-50" %>Logout</li>
+    <%= button_to destroy_user_session_path, method: :delete, class:"flex items-center gap-2 text-slate-500 font-thin hover:text-red-300 text-xl" do %>
+      <li class="flex items-center gap-2 hover:text-blue-500"><%= image_tag "shutdown.svg", class: "inline w-6 opacity-50" %>Logout</li>
     <% end %>
     <%= link_to profile_path(current_user) do %>
       <li><%= image_tag current_user.picture.attached? ? current_user.picture : "user_placeholder", class: "w-10 object-cover rounded-full overflow-hidden #{controller_name == "profiles" && action_name == "show" ? "invisible" : ""}"  %></li>
