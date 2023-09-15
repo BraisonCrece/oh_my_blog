@@ -6,6 +6,9 @@ module.exports = {
         './app/assets/stylesheets/**/*.css',
         './app/javascript/**/*.js'
     ],
+    corePlugins: {
+        aspectRatio: false,
+    },
     plugins: [
         require('@tailwindcss/typography'),
         require('@tailwindcss/forms'),
