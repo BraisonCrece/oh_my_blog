@@ -15,7 +15,7 @@
       <li class="text-slate-500 font-thin text-lg hover:text-blue-500 mx-auto py-6 text-center">My Profile</li>
     <% end %>
     <%= button_to destroy_user_session_path, method: :delete, class: "w-full" do %>
-      <li class="text-slate-500 font-thin text-lg hover:text-red-300 mx-auto py-6 text-center">Logout</li>
+      <li class="text-slate-500 font-thin text-lg hover:text-red-300 mx-auto py-6 text-center"><%= image_tag "shutdown.svg", class: "inline mx-auto w-6" %>Logout</li>
     <% end %>
   <% end %>
 </ul>
