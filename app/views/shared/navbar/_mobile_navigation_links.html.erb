@@ -1,22 +1,24 @@
-<ul class="mobile-menu blur_effect lg:hidden list-none w-full absolute -z-10 bg-white transition-all -translate-y-full duration-500 ease-in-out" data-toggle-menu-target="list">
+<ul class="mobile-menu blur_effect lg:hidden list-none w-full absolute -z-10 dark:bg-slate-800 bg-white transition-all -translate-y-full duration-500 ease-in-out" data-toggle-menu-target="list">
   <% unless current_user %>
     <%= link_to new_user_session_path, class: "w-full flex justify-center" do %>
-      <li class="nav-link text-slate-900 font-thin text-lg hover:text-blue-500 mx-auto py-6 text-center transition-all duration-1000">Log in</li>
+      <li class="dark:text-white dark:hover:text-blue-300 nav-link text-slate-900 font-thin text-lg hover:text-blue-500 mx-auto py-6 text-center transition-all duration-1000">Log in</li>
     <% end %>
   <% end %>
   <%= link_to articles_path, class: "w-full flex justify-center"  do %>
-    <li class="nav-link text-slate-900 font-thin text-lg hover:text-blue-500 mx-auto py-6 text-center transition-all duration-1000">Recent Articles</li>
+    <li class="dark:text-white dark:hover:text-blue-300 nav-link text-slate-900 font-thin text-lg hover:text-blue-500 mx-auto py-6 text-center transition-all duration-1000">Recent Articles</li>
   <% end %>
   <% if current_user %>
     <%= link_to new_article_path, class: "w-full" do %>
-      <li class="nav-link text-slate-900 font-thin text-lg hover:text-blue-500 mx-auto py-6 text-center transition-all duration-1000">New Article</li>
+      <li class="dark:text-white dark:hover:text-blue-300 nav-link text-slate-900 font-thin text-lg hover:text-blue-500 mx-auto py-6 text-center transition-all duration-1000">New Article</li>
     <% end %>
     <%= link_to profile_path(current_user), class: "w-full" do %>
-      <li class="nav-link text-slate-900 font-thin text-lg hover:text-blue-500 mx-auto py-6 text-center transition-all duration-1000">My Profile</li>
+      <li class="dark:text-white dark:hover:text-blue-300 nav-link text-slate-900 font-thin text-lg hover:text-blue-500 mx-auto py-6 text-center transition-all duration-1000">My Profile</li>
     <% end %>
-    <%= button_to destroy_user_session_path, method: :delete, class: "w-full" do %>
-      <li class="nav-link text-slate-900 font-thin text-lg hover:text-red-300 mx-auto py-6 text-center transition-all duration-1000"><%= image_tag "shutdown.svg", class: "inline mx-auto w-6" %>Logout</li>
-    <% end %>
+    <li class="dark:text-white dark:hover:text-blue-300 nav-link text-slate-900 font-thin text-lg hover:text-red-300 mx-auto py-6 text-center transition-all duration-1000">
+      <%= button_to destroy_user_session_path, method: :delete, class: "w-full flex items-center justify-center gap-2" do %>
+        <svg width="1.5rem" height="1.5rem" viewBox="-3.12 -3.12 30.24 30.24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.152"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6.34315 6.34315C5.22433 7.46197 4.4624 8.88743 4.15372 10.4393C3.84504 11.9911 4.00346 13.5997 4.60896 15.0615C5.21447 16.5233 6.23985 17.7727 7.55544 18.6518C8.87103 19.5308 10.4178 20 12 20C13.5823 20 15.129 19.5308 16.4446 18.6518C17.7602 17.7727 18.7855 16.5233 19.391 15.0615C19.9965 13.5997 20.155 11.9911 19.8463 10.4393C19.5376 8.88743 18.7757 7.46197 17.6569 6.34315" stroke="currentColor" stroke-linecap="round"></path> <path d="M12 8L12 4" stroke="currentColor" stroke-linecap="round"></path> </g></svg>Logout
+      <% end %>
+    </li>
   <% end %>
 </ul>
 </div>
