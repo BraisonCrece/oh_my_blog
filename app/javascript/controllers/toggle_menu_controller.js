@@ -7,8 +7,11 @@ export default class extends Controller {
         // If the Scroll is on TOP, the nav wont have shadow
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
-            scrollY > 0 ? this.navTarget.classList.add('shadow-md') : this.navTarget.classList.remove('shadow-md')
-
+            if (scrollY > 0) {
+                this.navTarget.classList.add('shadow-lg')
+            } else {
+                this.navTarget.classList.remove('shadow-lg')
+            }
         })
         this.buttonTarget.addEventListener("click", this.toggle.bind(this))
     }

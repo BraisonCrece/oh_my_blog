@@ -12,11 +12,14 @@
     <%= javascript_include_tag "editorjs", "data-turbo-track": "reload", defer: true %>
     <script src="https://kit.fontawesome.com/ec336602a2.js" crossorigin="anonymous"></script>
   </head>
-  <body>
+  <body class="dark:bg-slate-800 transition-colors duration-1000">
     <%= render "shared/alerts" %>
     <%= render "shared/navbar/navbar" %>
     <main class="w-[86%] leading-[1.90rem] sm:w-4/5 lg:w-3/4 max-w-2xl mx-auto my-9">
       <%= yield %>
     </main>
+    <span class="fixed bottom-8 right-12 dark:text-white" data-controller="theme-toggler" data-theme-toggler-target="switcher">
+      SWITCH-THEME
+    </span>
   </body>
 </html>

@@ -1,21 +1,23 @@
 <ul class="lg:flex gap-8 items-center list-none hidden">
   <% unless current_user %>
     <%= link_to new_user_session_path do %>
-      <li class="text-slate-500 font-thin hover:text-blue-500 text-xl">Log in</li>
+      <li class="nav-link transition-all duration-100 text-slate-900 dark:text-white font-thin hover:text-blue-500 dark:hover:text-blue-300 text-xl">Log in</li>
     <% end %>
   <% end %>
   <%= link_to articles_path  do %>
-    <li class="flex items-center gap-2 text-slate-500 font-thin hover:text-blue-500 text-xl"><%= image_tag "recent.svg", class: "inline w-6 opacity-50" %>Recent Articles</li>
+    <li class="nav-link transition-all duration-100 flex items-center gap-2 text-slate-900 dark:text-white font-thin hover:text-blue-500 dark:hover:text-blue-300 text-xl"><svg width="1.5rem" height="1.5rem" viewBox="-1.92 -1.92 27.84 27.84" id="_24x24_On_Light_Recent" data-name="24x24/On Light/Recent" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect id="view-box" width="24" height="24" fill="none"></rect> <path id="Shape" d="M9.682,18.75a.75.75,0,0,1,.75-.75,8.25,8.25,0,1,0-6.189-2.795V12.568a.75.75,0,0,1,1.5,0v4.243a.75.75,0,0,1-.751.75H.75a.75.75,0,0,1,0-1.5H3a9.75,9.75,0,1,1,7.433,3.44A.75.75,0,0,1,9.682,18.75Zm2.875-4.814L9.9,11.281a.754.754,0,0,1-.22-.531V5.55a.75.75,0,1,1,1.5,0v4.889l2.436,2.436a.75.75,0,1,1-1.061,1.06Z" transform="translate(1.568 2.25)" fill="currentColor"></path> </g></svg>Recent Articles</li>
   <% end %>
   <% if current_user %>
     <%= link_to new_article_path do %>
-      <li class="flex items-center gap-2 text-slate-500 font-thin hover:text-blue-500 text-xl"><%= image_tag "new.svg", class: "inline w-6" %>New Article</li>
+      <li class="nav-link transition-all duration-100 flex items-center gap-2 text-slate-900 dark:text-white font-thin hover:text-blue-500 dark:hover:text-blue-300 text-xl"><svg width="1.5rem" height="1.5rem" viewBox="-0.24 -0.24 24.48 24.48" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 12H20M12 4V20" stroke="currentColor" stroke-width="0.9359999999999999" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>New Article</li>
     <% end %>
-    <%= button_to destroy_user_session_path, method: :delete, class:"flex items-center gap-2 text-slate-500 font-thin hover:text-red-300 text-xl" do %>
-      <li class="flex items-center gap-2 hover:text-blue-500"><%= image_tag "shutdown.svg", class: "inline w-6 opacity-50" %>Logout</li>
-    <% end %>
+    <li class="nav-link transition-all duration-100  text-slate-900 dark:text-white font-thin hover:text-red-300 dark:hover:text-red-300 text-xl">
+      <%= button_to destroy_user_session_path, method: :delete, class: "flex items-center gap-2" do %>
+        <svg width="1.5rem" height="1.5rem" viewBox="-3.12 -3.12 30.24 30.24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.152"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6.34315 6.34315C5.22433 7.46197 4.4624 8.88743 4.15372 10.4393C3.84504 11.9911 4.00346 13.5997 4.60896 15.0615C5.21447 16.5233 6.23985 17.7727 7.55544 18.6518C8.87103 19.5308 10.4178 20 12 20C13.5823 20 15.129 19.5308 16.4446 18.6518C17.7602 17.7727 18.7855 16.5233 19.391 15.0615C19.9965 13.5997 20.155 11.9911 19.8463 10.4393C19.5376 8.88743 18.7757 7.46197 17.6569 6.34315" stroke="currentColor" stroke-linecap="round"></path> <path d="M12 8L12 4" stroke="currentColor" stroke-linecap="round"></path> </g></svg>Logout
+      <% end %>
+    </li>
     <%= link_to profile_path(current_user) do %>
-      <li><%= image_tag current_user.picture.attached? ? current_user.picture : "user_placeholder", class: "w-10 object-cover rounded-full overflow-hidden #{controller_name == "profiles" && action_name == "show" ? "invisible" : ""}"  %></li>
+      <li><%= image_tag current_user.picture.attached? ? current_user.picture : "user_placeholder", class: "w-16 object-cover rounded-full overflow-hidden #{controller_name == "profiles" && action_name == "show" ? "invisible" : ""}"  %></li>
     <% end %>
   <% end %>
 </ul>

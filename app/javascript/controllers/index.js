@@ -19,5 +19,8 @@ application.register("hello", HelloController)
 import PicturePreviewController from "./picture_preview_controller"
 application.register("picture-preview", PicturePreviewController)
 
+import ThemeTogglerController from "./theme_toggler_controller"
+application.register("theme-toggler", ThemeTogglerController)
+
 import ToggleMenuController from "./toggle_menu_controller"
 application.register("toggle-menu", ToggleMenuController)
