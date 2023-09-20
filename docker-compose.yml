@@ -1,0 +1,88 @@
+services:
+  app:
+    image: oh-my-blog-app
+    tty: true
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes: &app_volumes
+      - .:/rails
+      - bundle_data:/usr/local/bundle
+      - data:/data
+      - bash_history:/root
+    ports:
+      - "3000:3000"
+    environment: &app_environment
+      DATABASE_URL: postgres://postgres:password@db:5432/oh_my_blog_development
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    command: sh -c "rm -f tmp/pids/server.pid && bin/dev"
+    networks:
+      - oh_my_blog_network
+
+  test:
+    image: oh-my-blog-app
+    tty: true
+    stdin_open: true
+    init: true
+    depends_on:
+      chrome:
+        condition: service_healthy
+      db:
+        condition: service_healthy
+    volumes: *app_volumes
+    environment:
+      <<: *app_environment
+      DATABASE_URL: postgres://postgres:password@db:5432/oh_my_blog_test
+      RAILS_ENV: test
+      SELENIUM_HOST: "http://chrome:4444"
+      CAPYBARA_SERVER_HOST: "0.0.0.0"
+    networks:
+      - oh_my_blog_network
+
+  chrome:
+    image: selenium/standalone-chromium:latest
+    shm_size: 2g
+    ports:
+      - "4444:4444"
+      - "5900:5900"
+      - "7900:7900"
+    networks:
+      - oh_my_blog_network
+    healthcheck:
+      test: ["CMD", "/opt/bin/check-grid.sh"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  db:
+    image: postgres:latest
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: oh_my_blog_development
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    networks:
+      - oh_my_blog_network
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+networks:
+  oh_my_blog_network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  bundle_data:
+  data:
+  bash_history:

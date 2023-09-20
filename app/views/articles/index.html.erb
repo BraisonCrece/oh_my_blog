@@ -1,6 +1,6 @@
 <div id="articles" class="font-futura">
   <% @articles.each do |article| %>
-    <article class="mb-28">
+    <article class="article-index">
       <%= render article %>
       <%= link_to "Show this article", article, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded-full" %>
     </article>
