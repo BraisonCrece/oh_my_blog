@@ -2,6 +2,8 @@ class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   before_action :set_article, only: %i[ show edit update destroy ]
 
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
   # GET /articles or /articles.json
   def index
     @articles = Article.all.order(created_at: :desc)
@@ -9,21 +11,25 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1 or /articles/1.json
   def show
+    authorize @article
   end
 
   # GET /articles/new
   def new
     @article = Article.new
+    authorize @article
   end
 
   # GET /articles/1/edit
   def edit
+    authorize @article
   end
 
   # POST /articles or /articles.json
   def create
     @article = Article.new(article_params)
     @article.user = current_user
+    authorize @article
     if @article.save
       @article.save_article_images
       redirect_to article_url(@article), notice: "Article was successfully created."
@@ -34,20 +40,18 @@ class ArticlesController < ApplicationController
 
   # PATCH/PUT /articles/1 or /articles/1.json
   def update
-    respond_to do |format|
-      if @article.update(article_params)
-        @article.save_article_images
-        format.html { redirect_to article_url(@article), notice: "Article was successfully updated." }
-        format.json { render :show, status: :ok, location: @article }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
-      end
+    authorize @article
+    if @article.update(article_params)
+      @article.save_article_images
+      redirect_to article_url(@article), notice: "Article was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   # DELETE /articles/1 or /articles/1.json
   def destroy
+    authorize @article
     @article.destroy
 
     respond_to do |format|
@@ -79,5 +83,10 @@ class ArticlesController < ApplicationController
   # Only allow a list of trusted parameters through.
   def article_params
     params.require(:article).permit(:title, :content, :image)
+  end
+
+  def user_not_authorized
+    flash[:alert] = "You are not allowed to do that action"
+    redirect_to(request.referrer || root_path)
   end
 end
